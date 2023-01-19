@@ -15,8 +15,8 @@
 
 :root.dark-mode {
 	--background: #171717;
-	--primary: #f0f0f0;
-	--primary-50: #f0f0f080;
+	--primary: #d0d0d0;
+	--primary-50: #d0d0d080;
 }
 
 @font-face {
