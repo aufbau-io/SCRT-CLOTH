@@ -27,7 +27,7 @@ const camera = new THREE.PerspectiveCamera(
     30,
     window.innerWidth / window.innerHeight,
     0.5,
-    20
+    15
 );
 
 if ($screenType == 1) {
