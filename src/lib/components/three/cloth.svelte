@@ -25,8 +25,8 @@ onMount(() => {
 const camera = new THREE.PerspectiveCamera(
     30,
     window.innerWidth / window.innerHeight,
-    1,
-    2000
+    0.5,
+    20
 );
 
 // const orbit = new OrbitControls(camera, renderer.domElement);
