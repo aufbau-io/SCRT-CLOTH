@@ -34,6 +34,7 @@
 		font-size: 33vw;
 		line-height: 50%;
 		margin: auto;
+		padding-left: 1.5vw;
 		padding-top: 15vh;
 		-webkit-text-stroke: 1px #d0d0d0;
 	}
