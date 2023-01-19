@@ -43,7 +43,7 @@ const camera = new THREE.PerspectiveCamera(
 
 // orbit.enabled = false
 
-camera.position.set(0, 0, 4);
+camera.position.set(0, 0, 3.2);
 camera.lookAt(0, 0, 0);
 
 
@@ -112,7 +112,7 @@ const clothMat = new THREE.MeshBasicMaterial({
 });
 
 const clothMesh = new THREE.Mesh(clothGeometry, clothMat);
-clothMesh.position.y += .05;
+clothMesh.position.y += .02;
 scene.add(clothMesh);
 
 const clothWireMat = new THREE.MeshBasicMaterial({
@@ -122,7 +122,7 @@ const clothWireMat = new THREE.MeshBasicMaterial({
 });
 
 const clothWireMesh = new THREE.Mesh(clothGeometry, clothWireMat);
-clothWireMesh.position.y += .05;
+clothWireMesh.position.y += .02;
 clothWireMesh.position.z += .5;
 scene.add(clothWireMesh);
 
@@ -182,7 +182,7 @@ scene.add(stars);
 // Sphere
 
 const sphereSize = .3;
-const movementRadius = .1;
+const movementRadius = .15;
 
 const sphereGeometry = new THREE.IcosahedronGeometry(sphereSize);
 const sphereMat = new THREE.MeshPhysicalMaterial({  
@@ -213,9 +213,8 @@ function animate(time) {
 
   // camera.position.x += cursor.x / 100
   // camera.position.y += -cursor.y / 100
-  camera.position.z = movementRadius/5 * Math.cos(time / 1500) + 3
 
-  camera.position.x += (cursor.x - camera.position.x * 1) * .1;
+  camera.position.x += (cursor.x - camera.position.x * 1) * .04;
 	camera.position.y += (-cursor.y - camera.position.y * 1) * .05;
 
 		camera.lookAt(scene.position);
@@ -232,14 +231,14 @@ function animate(time) {
     updateParticules();
     world.step(timeStep);
 
-    sphereMesh.rotation.x += 0.005;
-    sphereMesh.rotation.y += 0.005;
-    sphereMesh.rotation.z += 0.005;
+    sphereMesh.rotation.x += 0.004;
+    sphereMesh.rotation.y += 0.004;
+    sphereMesh.rotation.z += 0.004;
 
     sphereBody.position.set(
-        movementRadius * Math.sin(time / 1500),
+        movementRadius * -Math.sin(time / 1500),
         0,
-        movementRadius * Math.cos(time / 1500) + 1
+        movementRadius * -Math.cos(time / 1500) + 1
     );
     sphereMesh.position.copy(sphereBody.position);
     renderer.render(scene, camera);
