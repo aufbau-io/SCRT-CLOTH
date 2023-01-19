@@ -89,6 +89,9 @@
 	}
 
 	@media only screen and (max-width: 768px) {
+		.app {
+			min-height: 100%;
+		}
 		/* main {
 			padding: calc(4 * var(--margin)) calc(3 * var(--margin));
 		} */

@@ -119,7 +119,7 @@ button:focus:not(:focus-visible) {
 	border-radius: 0;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
 	:root {
 		--margin: 10px;
 	}

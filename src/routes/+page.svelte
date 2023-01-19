@@ -39,4 +39,15 @@
 		-webkit-text-stroke: 1px #d0d0d0;
 	}
 
+@media (max-width: 768px) {
+	h1 {
+		opacity: 0;
+		height:0;
+	}
+
+	section {
+		max-height: 0;
+	}
+}
+
 </style>
