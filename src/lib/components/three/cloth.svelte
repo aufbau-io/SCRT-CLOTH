@@ -62,8 +62,8 @@ const world = new CANNON.World({
     gravity: new CANNON.Vec3(0, -9.8, 0)
 });
 
-const Nx = 15;
-const Ny = 15;
+const Nx = 12;
+const Ny = 12;
 const mass = 1;
 const clothSize = .9;
 const dist = clothSize / Nx;
@@ -202,7 +202,7 @@ let sphereBody = new CANNON.Body({
 });
 world.addBody(sphereBody);
 
-const timeStep = 1 / 120;
+const timeStep = 1 / 60;
 const clock = new THREE.Clock();
 
 function animate(time) {
