@@ -8,7 +8,7 @@
 
 <section>
 	<h1>
-		DAS AUFBAUZEUG
+		SCRT
 	</h1>
 
 </section>
@@ -21,13 +21,21 @@
 		align-items: center;
 		flex: 1;
 		background: var(--background);
-		border: solid 1px var(--primary);
+
+		max-width: 100%;
+		max-height: 100%;
+		overflow: hidden;
 	}
 
 	h1 {
 		width: 100%;
-		color: var(--primary);
+		color: transparent;
 		font-family: var(--font-header);
+		font-size: 40rem;
+		line-height: 50%;
+		margin: auto;
+		padding-top: 15vh;
+		-webkit-text-stroke: 1px #d0d0d0;
 	}
 
 </style>

@@ -10,7 +10,7 @@
 	let Geometry;
 	onMount(async () => {
 
-		const module = await import('$lib/components/three/lorentz.svelte');
+		const module = await import('$lib/components/three/cloth.svelte');
 		Geometry = module.default;
 
 		// ---------------------------------------------------------------------------
@@ -42,17 +42,17 @@
 
 <div class="app">
 	{#if $screenType}
-	<header>
+	<!-- <header>
 		<Header />
-	</header>
+	</header> -->
 
 	<main>
 		<slot />
 	</main>
 
-	<footer>
+	<!-- <footer>
 		<Footer />
-	</footer>
+	</footer> -->
 	{/if}
 </div>
 
@@ -80,16 +80,17 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: calc(4 * var(--margin)) calc(4 * var(--margin));
+		/* padding: calc(4 * var(--margin)) calc(4 * var(--margin)); */
 		width: 100%;
-		max-width: 64rem;
+		height: 100%;
+		/* max-width: 64rem; */
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
 
 	@media only screen and (max-width: 768px) {
-		main {
+		/* main {
 			padding: calc(4 * var(--margin)) calc(3 * var(--margin));
-		}
+		} */
 	}
 </style>

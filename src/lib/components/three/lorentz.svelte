@@ -14,7 +14,7 @@
 
 	// Setting up a camera
 	let camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 800);
-	camera.position.z = 100;
+	camera.position.z = 75;
 
 	// Setting up the renderer. This will be called later to render scene with the camera setup above
 	let renderer = new THREE.WebGLRenderer({ antialias: true });

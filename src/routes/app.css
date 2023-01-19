@@ -2,20 +2,27 @@
 
 :root {
 	--font-body: untitled-sans, sans-serif;
-	--font-header: dahlia, sans-serif;
-	--background: #232323;
-	--primary: #f0f0f0;
-	--primary-50: #f0f0f080;
+	--font-header: sirap, sans-serif;
+	--background: #f0f0f0;
+	--primary: #232323;
+	--primary-50: #23232380;
 	--column-width: 42rem;
 	--margin: 20px;
 	font-family: var(--font-body);
 	color: var(--color-text);
+	user-select: none;
 }
 
 :root.dark-mode {
-	--background: #f0f0f0;
-	--primary: #232323;
-	--primary-50: #23232380;
+	--background: #202020;
+	--primary: #f0f0f0;
+	--primary-50: #f0f0f080;
+}
+
+@font-face {
+	font-family: sirap;
+	src: url(/fonts/sirap.ttf) format('ttf');
+	font-weight: 400;
 }
 
 @font-face {
