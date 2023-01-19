@@ -3,7 +3,7 @@
 
 <svelte:head>
 	<title>SCRT THROW DEMO</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="SCRT THROW DEMO - AUFBAU IO" />
 </svelte:head>
 
 <section>
