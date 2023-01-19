@@ -203,8 +203,11 @@ let sphereBody = new CANNON.Body({
 world.addBody(sphereBody);
 
 const timeStep = 1 / 60;
+const clock = new THREE.Clock();
 
 function animate(time) {
+
+  const elapsedTime = clock.getElapsedTime();
 
   // camera.position.y = (-scrollY / sizes.height) * 1
 
@@ -236,9 +239,9 @@ function animate(time) {
     sphereMesh.rotation.z += 0.004;
 
     sphereBody.position.set(
-        movementRadius * -Math.sin(time / 1500),
+        movementRadius * -Math.sin(elapsedTime / 1.5),
         0,
-        movementRadius * -Math.cos(time / 1500) + 1
+        movementRadius * -Math.cos(elapsedTime / 1.5) + 1
     );
     sphereMesh.position.copy(sphereBody.position);
     renderer.render(scene, camera);
