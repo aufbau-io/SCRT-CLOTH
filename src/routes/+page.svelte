@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-	<title>SCRT CLOTH DEMO</title>
+	<title>SCRT THROW DEMO</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
