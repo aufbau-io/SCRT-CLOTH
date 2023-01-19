@@ -4,19 +4,19 @@ import * as THREE from 'three';
 // import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import * as CANNON from 'cannon-es';
 
-let container, pc, id;
+let container, id;
 	onDestroy(() => cancelAnimationFrame(id));
 
-const renderer = new THREE.WebGLRenderer({antialias: false});
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0xA3A3A3, 0);
-
-const scene = new THREE.Scene();
-
-let sizes = {
+  let sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
+
+const renderer = new THREE.WebGLRenderer({antialias: false});
+renderer.setSize(sizes.width, sizes.height);
+renderer.setClearColor(0x171717, 0);
+
+const scene = new THREE.Scene();
 
 onMount(() => {
 		container.appendChild(renderer.domElement);
@@ -26,34 +26,15 @@ const camera = new THREE.PerspectiveCamera(
     30,
     window.innerWidth / window.innerHeight,
     0.5,
-    20
+    15
 );
-
-// const orbit = new OrbitControls(camera, renderer.domElement);
-// orbit.enableDamping = true;
-// orbit.maxPolarAngle = .5;
-// orbit.minPolarAngle = Math.PI * 0.5;
-// orbit.minDistance = 3.5;
-// orbit.maxDistance = 3.5;
-// orbit.minAzimuthAngle = -Math.PI;
-// orbit.maxAzimuthAngle = Math.PI;
-// orbit.enablePan = false;
-// orbit.rotateSpeed = .2;
-// orbit.zoomSpeed = .2;
-
-// orbit.enabled = false
 
 camera.position.set(0, 0, 2.5);
 camera.lookAt(0, 0, 0);
 
-
-
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0);
-// scene.add(ambientLight)
-
 // fog
 {
-  const color = 0x232323;
+  const color = 0x171717;
   const density = 0.12;
   scene.fog = new THREE.FogExp2(color, density);
 }
@@ -62,8 +43,8 @@ const world = new CANNON.World({
     gravity: new CANNON.Vec3(0, -9.8, 0)
 });
 
-const Nx = 12;
-const Ny = 12;
+const Nx = 10;
+const Ny = 10;
 const mass = 1;
 const clothSize = .9;
 const dist = clothSize / Nx;
@@ -155,7 +136,7 @@ const positions = new Float32Array(particlesCount * 3);
 
 for (let i = 0; i < particlesCount; i++) {
   positions[i * 3 + 0] = (Math.random() - 0.5) * 4;
-  positions[i * 3 + 1] = (Math.random() - 0.5) * 2;
+  positions[i * 3 + 1] = (Math.random() - 0.5) * 3;
   positions[i * 3 + 2] = (Math.random() - 0.5) * 6;
 }
 
@@ -167,7 +148,6 @@ particlesGeometry.setAttribute(
 
 // Material
 const particlesMaterial = new THREE.PointsMaterial({
-  // sizeAttenuation: textureLoader,
   color: 0xd0d0d0,
   size: 0.02,
 });
@@ -192,9 +172,8 @@ const sphereMat = new THREE.MeshPhysicalMaterial({
 });
 
 const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMat);
-scene.add(sphereMesh);
-
 sphereMesh.position.z = 1
+scene.add(sphereMesh);
 
 const sphereShape = new CANNON.Sphere(sphereSize * 1);
 let sphereBody = new CANNON.Body({
@@ -204,31 +183,16 @@ world.addBody(sphereBody);
 
 const timeStep = 1 / 60;
 const clock = new THREE.Clock();
+let previousTime = 0;
 
 function animate(time) {
 
   const elapsedTime = clock.getElapsedTime();
 
-  // camera.position.y = (-scrollY / sizes.height) * 1
+  camera.position.x += (cursor.x - camera.position.x * 1) * .02;
+	camera.position.y += (-cursor.y - camera.position.y * 1) * .05;
 
-  // camera.position.x = movementRadius * Math.sin(time / 1500)
-  // camera.position.z = Math.cos(time / 1500) + 3
-
-  // camera.position.x += cursor.x / 100
-  // camera.position.y += -cursor.y / 100
-
-  camera.position.x += (cursor.x - camera.position.x * 1) * .03;
-	camera.position.y += (-cursor.y - camera.position.y * 1) * .04;
-
-		camera.lookAt(scene.position);
-
-    // Animate camera
-    // const parallaxX = cursor.x * 0.5;
-    // const parallaxY = -cursor.y * 0.5;
-    // cameraGroup.position.x +=
-    //   (parallaxX - camera.position.x);
-    // cameraGroup.position.y +=
-    //   (parallaxY - camera.position.y);
+	camera.lookAt(scene.position);
 
     // Update cloth
     updateParticules();
@@ -239,9 +203,9 @@ function animate(time) {
     sphereMesh.rotation.z += 0.004;
 
     sphereBody.position.set(
-        movementRadius * -Math.sin(elapsedTime / 1.5),
+        movementRadius * -Math.sin(elapsedTime / 125),
         0,
-        movementRadius * -Math.cos(elapsedTime / 1.5) + 1
+        movementRadius * -Math.cos(elapsedTime / 1.25) + 1
     );
     sphereMesh.position.copy(sphereBody.position);
     renderer.render(scene, camera);
