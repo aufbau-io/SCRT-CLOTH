@@ -23,7 +23,7 @@ onMount(() => {
 	});
 
 const camera = new THREE.PerspectiveCamera(
-    24,
+    30,
     window.innerWidth / window.innerHeight,
     1,
     2000
@@ -43,7 +43,7 @@ const camera = new THREE.PerspectiveCamera(
 
 // orbit.enabled = false
 
-camera.position.set(0, 0, 3.2);
+camera.position.set(0, 0, 2.5);
 camera.lookAt(0, 0, 0);
 
 
@@ -54,7 +54,7 @@ camera.lookAt(0, 0, 0);
 // fog
 {
   const color = 0x232323;
-  const density = 0.12;
+  const density = 0.1;
   scene.fog = new THREE.FogExp2(color, density);
 }
 
@@ -217,8 +217,8 @@ function animate(time) {
   // camera.position.x += cursor.x / 100
   // camera.position.y += -cursor.y / 100
 
-  camera.position.x += (cursor.x - camera.position.x * 1) * .04;
-	camera.position.y += (-cursor.y - camera.position.y * 1) * .05;
+  camera.position.x += (cursor.x - camera.position.x * 1) * .03;
+	camera.position.y += (-cursor.y - camera.position.y * 1) * .04;
 
 		camera.lookAt(scene.position);
 
