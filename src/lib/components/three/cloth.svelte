@@ -54,7 +54,7 @@ camera.lookAt(0, 0, 0);
 // fog
 {
   const color = 0x232323;
-  const density = 0.1;
+  const density = 0.12;
   scene.fog = new THREE.FogExp2(color, density);
 }
 
