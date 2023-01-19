@@ -31,7 +31,7 @@
 		width: 100%;
 		color: transparent;
 		font-family: var(--font-header);
-		font-size: 35vw;
+		font-size: 33vw;
 		line-height: 50%;
 		margin: auto;
 		padding-top: 15vh;
