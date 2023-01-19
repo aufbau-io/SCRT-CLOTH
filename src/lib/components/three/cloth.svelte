@@ -1,5 +1,6 @@
 <script>
 import { onMount, onDestroy } from 'svelte';
+import { screenType } from '$lib/store/store';
 import * as THREE from 'three';
 // import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import * as CANNON from 'cannon-es';
@@ -29,7 +30,12 @@ const camera = new THREE.PerspectiveCamera(
     15
 );
 
-camera.position.set(0, 0, 2.5);
+if ($screenType == 1) {
+  camera.position.set(0, 0, 4);
+} else {
+  camera.position.set(0, 0, 2.5);
+}
+
 camera.lookAt(0, 0, 0);
 
 // fog
