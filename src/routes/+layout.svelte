@@ -98,7 +98,7 @@
 	img {
 		width: 25%;
 		height: 25%;
-		opacity: .25;
+		opacity: .5;
 	}
 
 	header {
