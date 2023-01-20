@@ -8,14 +8,14 @@ import * as CANNON from 'cannon-es';
 let container, id;
 	onDestroy(() => cancelAnimationFrame(id));
 
-  let sizes = {
+let sizes = {
   width: window.innerWidth,
   height: window.innerHeight,
 };
 
 const renderer = new THREE.WebGLRenderer({antialias: false});
 renderer.setSize(sizes.width, sizes.height);
-renderer.setClearColor(0x171717, 0);
+renderer.setClearColor(0x171717, .1);
 
 const scene = new THREE.Scene();
 
@@ -209,9 +209,9 @@ function animate(time) {
     sphereMesh.rotation.z += 0.004;
 
     sphereBody.position.set(
-        movementRadius * -Math.sin(elapsedTime / 125),
+        movementRadius * -Math.sin(elapsedTime / 2.5),
         0,
-        movementRadius * -Math.cos(elapsedTime / 1.25) + 1
+        movementRadius * -Math.cos(elapsedTime / 2.5) + 1
     );
     sphereMesh.position.copy(sphereBody.position);
     renderer.render(scene, camera);
