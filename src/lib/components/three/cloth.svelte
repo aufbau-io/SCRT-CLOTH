@@ -15,7 +15,7 @@ let sizes = {
 
 const renderer = new THREE.WebGLRenderer({antialias: false});
 renderer.setSize(sizes.width, sizes.height);
-renderer.setClearColor(0x171717, .2);
+renderer.setClearColor(0x171717, .4);
 
 const scene = new THREE.Scene();
 
