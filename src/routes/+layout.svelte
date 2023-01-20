@@ -46,6 +46,25 @@
 		<Header />
 	</header> -->
 
+	<div class="imgs">
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+	<img src="music.png" alt="music"/>
+</div>
+
 	<main>
 		<slot />
 	</main>
@@ -62,6 +81,24 @@
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	.imgs {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		display: flex;
+		flex-flow: row wrap;
+		padding: 20px;
+	}
+
+	img {
+		width: 25%;
+		height: 25%;
+		opacity: .25;
 	}
 
 	header {

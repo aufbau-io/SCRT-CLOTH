@@ -39,11 +39,11 @@ if ($screenType == 1) {
 camera.lookAt(0, 0, 0);
 
 // fog
-{
-  const color = 0x171717;
-  const density = 0.12;
-  scene.fog = new THREE.FogExp2(color, density);
-}
+// {
+//   const color = 0x171717;
+//   const density = 0.1;
+//   scene.fog = new THREE.FogExp2(color, density);
+// }
 
 const world = new CANNON.World({
     gravity: new CANNON.Vec3(0, -9.8, 0)
