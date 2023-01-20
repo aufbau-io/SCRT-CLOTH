@@ -92,7 +92,7 @@
 		z-index: -1;
 		display: flex;
 		flex-flow: row wrap;
-		padding: 0px;
+		padding: 8px;
 	}
 
 	img {
